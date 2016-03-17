@@ -1,0 +1,7 @@
+---
+# test file for vitalied.nodejs
+
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-role-nodejs
