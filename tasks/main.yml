@@ -1,2 +1,21 @@
 ---
 # tasks file for vitalied.nodejs
+
+- name: apt-key add
+  apt_key:
+    url: "{{ nodejs_apt_key_url }}"
+    state: present
+  tags: vitalied.nodejs
+
+- name: apt-add-repository
+  apt_repository:
+    filename: nodejs
+    repo: "{{ nodejs_add_apt_repo }}"
+    state: present
+  tags: vitalied.nodejs
+
+- name: apt-get install
+  apt:
+    name: nodejs
+    state: latest
+  tags: vitalied.nodejs
